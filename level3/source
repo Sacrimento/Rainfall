@@ -1,0 +1,12 @@
+v:
+printf(fgets(str, 0x200, file));
+mov    eax,ds:0x8049880
+if (eax != 0x40)
+	return;
+fwrite("Wait what?!\n", 0x1, 0xc, edx);
+system("/bin/sh");
+
+
+
+main:
+v()

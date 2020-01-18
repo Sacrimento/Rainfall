@@ -1,0 +1,17 @@
+p:
+char string[76?];
+
+fflush();
+
+string = gets()
+if (eax & 0xb0000000)
+{
+	puts(string)
+	strdup(string)
+	return ;
+}
+printf();
+exit();
+
+main:
+p()

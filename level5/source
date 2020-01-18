@@ -1,0 +1,14 @@
+o:
+system("/bin/sh");
+esp = 0x1;
+exit();
+
+n:
+fgets(str, 0x200, file);
+printf(str);
+esp = 0x1;
+exit();
+
+
+main:
+n()

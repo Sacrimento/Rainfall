@@ -4,19 +4,17 @@ m:
 puts("Nope");
 
 main:
-esp + 0x1c (truc) = malloc(64)
+str1 (truc) = malloc(64)
 
-malloc(4);
-tmp = eax
+eax+0x18 = malloc(4);
 
-edx = address;
+edx = addresse de m();
 
-eax = tmp
+eax = eax+0x18
+[eax] = edx
 eax  = ebp+0xc
 
 eax += 4
 edx = eax
 
-eax = esp + 0x1c
-esp + 4 = eax
-strcpy()
+strcpy(str1, edx)
