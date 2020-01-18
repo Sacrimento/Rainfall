@@ -1,0 +1,8 @@
+run:
+	fwrite("Good... Wait what?\n", 0x1, 0x13, edx);
+	system("/bin/sh");
+
+main:
+char str[0x50];
+
+gets(str);
