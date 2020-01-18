@@ -1,0 +1,22 @@
+n:
+system("/bin/cat /home/user/level7/.pass");
+m:
+puts("Nope");
+
+main:
+esp + 0x1c (truc) = malloc(64)
+
+malloc(4);
+tmp = eax
+
+edx = address;
+
+eax = tmp
+eax  = ebp+0xc
+
+eax += 4
+edx = eax
+
+eax = esp + 0x1c
+esp + 4 = eax
+strcpy()
