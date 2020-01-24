@@ -10,20 +10,10 @@ str2 = malloc(8)
 edx = malloc(8)
 
 eax = str2
-eax+4 = edx
-eax = ebp+0xc
-eax += 4
-edx = eax
 
-strcpy(str1, edx);
+strcpy(str1, argv[1]);
 
-eax = ebp+0xc
-eax += 8
-eax = [eax]
-edx = eax
-
-esp+0x4 = edx
-strcpy(str2, edx);
+strcpy(str2, argv[2]);
 
 file = fopen("/home/user/level8/.pass", "r");
 fgets(str, 0x44, file)
