@@ -1,0 +1,8 @@
+$(python -c "print('A'*20 + '\x28\x99\x04\x08')") $(python -c "print('\xf4\x84\x04\x08')")
+
+1. The program runs 2 mallocs and 2 strcpy (simplified)
+2. We can overflow the the 2nd alloc'd area with the first strcpy by giving the good offset to the first arg
+3. There is 20 bytes between the two alloc'd area so we can pad 20 bytes then an address, here the PLT entry for puts.
+4. Then the second strcpy is called writes to the address pointed by the second allocation, still the PLT entry.
+5. We put the function address of m in the second argument, so it is written at the puts PLT entry.
+6. When ran, the program calls m instead of puts
