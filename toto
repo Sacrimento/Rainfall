@@ -160,6 +160,7 @@ Disassembly of section .text:
  8048602:	7f 0c                	jg     8048610 <main+0x1c>
  8048604:	c7 04 24 01 00 00 00 	mov    DWORD PTR [esp],0x1
  804860b:	e8 e0 fe ff ff       	call   80484f0 <_exit@plt>
+
  8048610:	c7 04 24 6c 00 00 00 	mov    DWORD PTR [esp],0x6c
  8048617:	e8 14 ff ff ff       	call   8048530 <_Znwj@plt>
  804861c:	89 c3                	mov    ebx,eax
@@ -175,6 +176,7 @@ Disassembly of section .text:
  8048647:	00 
  8048648:	89 1c 24             	mov    DWORD PTR [esp],ebx
  804864b:	e8 a6 00 00 00       	call   80486f6 <_ZN1NC1Ei>
+
  8048650:	89 5c 24 18          	mov    DWORD PTR [esp+0x18],ebx
  8048654:	8b 44 24 1c          	mov    eax,DWORD PTR [esp+0x1c]
  8048658:	89 44 24 14          	mov    DWORD PTR [esp+0x14],eax

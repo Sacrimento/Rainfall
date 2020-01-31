@@ -6,8 +6,9 @@ truc = _ZN1NC1Ei(truc, 5);
 tmp = _Znwj(6, truc 'esp + 0x1c')
 truc = _ZN1NC1Ei(tmp, 6)
 
-truc1 []= tmp
+truc1 [esp + 0x18] = tmp
+truc2 [esp + 0x14] = truc
+truc3 [esp + 0x10] = truc1
 
-
-_ZN1N13setAnnotationEPc()
+_ZN1N13setAnnotationEPc(esp + 0x14, esp +)
 
