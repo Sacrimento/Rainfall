@@ -1,0 +1,13 @@
+main:
+if (argc < 1)
+	exit (1);
+truc = _Znwj(0x6c)
+truc = _ZN1NC1Ei(truc, 5);
+tmp = _Znwj(6, truc 'esp + 0x1c')
+truc = _ZN1NC1Ei(tmp, 6)
+
+truc1 []= tmp
+
+
+_ZN1N13setAnnotationEPc()
+
