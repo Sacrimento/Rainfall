@@ -6,7 +6,7 @@ ptr = strchr(buff, "\n");
 
 /* argv[2] ebp + 0x8 */
 
-strcpy(argv[2], ptr, 0x14);
+strncpy(argv[2], ptr, 0x14);
 
 pp:
 str1 = p(buff, " - ");
