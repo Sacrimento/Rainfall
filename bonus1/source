@@ -1,0 +1,10 @@
+main(argv, env):
+if(atoi(argv[1]) == 0x1a7)
+{
+	fwrite("No !\n", 0x1, 0x5, edx);
+	return;
+}
+str = strdup("/bin/sh")
+setresgid(getgid(), geteuid());
+setresuid(getgid(), geteuid());
+execv(str, env);

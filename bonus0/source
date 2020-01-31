@@ -1,0 +1,28 @@
+p(buf, str):
+puts(str);
+int elem1 = 0x1000
+read(0, buff, elem1);
+ptr = strchr(buff, "\n");
+
+/* argv[2] ebp + 0x8 */
+
+strcpy(argv[2], ptr, 0x14);
+
+pp:
+str1 = p(buff, " - ");
+str2 = p(buff, " - ");
+
+[...]
+
+strcpy(ebp + 0x8, str1);
+
+[...]
+
+/* argv[2] et argv[3] ? */
+strcat(ebp-0x1c, ebp+0x8);
+
+
+main:
+char *str;
+str = pp();
+puts(str);
