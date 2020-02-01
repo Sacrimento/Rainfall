@@ -1,0 +1,38 @@
+main():
+void *elem1 = NULL;
+void *elem2 = NULL;
+FILE *stream;
+
+printf("%p, %p \n", elem1, elem2);
+while (fgets(elem1, 128, stream))
+{
+	if (elem1 == "auth ")
+	{
+		elem2 = malloc(4);
+	}
+	else if (elem1 == "reset")	
+	{
+		free(elem2);
+	}
+	else if (elem1 == "service")
+	{
+		elem1 = strdup(&elem1[7]); // service + 7
+	}
+	else if (elem1 == "login")
+	{
+		if (elem1 + 20)
+		{
+			FILE *restrict stream;
+
+			fwrite("Password:\n", 1, 10, stream);
+			jmp debut boucle;
+		}
+		system("/bin/sh");
+	}
+	else
+	{
+		jmp debut boucle;
+	}
+}
+
+return 0;
