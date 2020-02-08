@@ -20,7 +20,7 @@ while (fgets(elem1, 128, stream))
 	}
 	else if (elem1 == "login")
 	{
-		if (elem1 + 20)
+		if (elem1 + 32)
 		{
 			FILE *restrict stream;
 
