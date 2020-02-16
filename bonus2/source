@@ -1,10 +1,25 @@
-main(argv, env):
-if(atoi(argv[1]) == 0x1a7)
+greetuser:
 {
-	fwrite("No !\n", 0x1, 0x5, edx);
-	return;
+	stack:0x58
+	if (eax == 1)
+	else if (eax == 2)
+
+	strcat;
+	puts;
+
 }
-str = strdup("/bin/sh")
-setresgid(getgid(), geteuid());
-setresuid(getgid(), geteuid());
-execv(str, env);
+
+main:
+{
+	stack:160
+	if (argc != 3)
+		return 1;
+	ecx =13;
+	strncpy(buf, argv[1], 40);
+	strncpy(buf, argv[2], 32);
+	truc = getenv("LANG")
+	if (!)
+		-> main + 239
+	if ( memcmp(truc, "fi", 2) )
+	else if ( memcmp(truc, "nl", 2) )
+}
