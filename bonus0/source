@@ -1,27 +1,32 @@
 p(buf, str):
-puts(str);
-int elem1 = 4096
-read(0, buff, elem1);
-ptr = strchr(buff, "\n");
-
-/* argv[2] ebp + 0x8 */
-
-strncpy(argv[2], ptr, 20);
+{
+	buffer[4120];
+	puts(str);
+	read(0, buff, 4096);
+	ptr = strchr(buff, "\n");
+	return strncpy(argv[2], ptr, 20);
+}
 
 pp:
-str1 = p(buff, " - ");
-str2 = p(buff, " - ");
+{
+	buf1;
+	buf2;
 
-[...]
+	str1 = p(buf1, " - ");
+	str2 = p(buf2, " - ");
 
-strcpy(buffer, str1);
+	[...]
 
-[...]
+		strcpy(buffer, str1);
 
-strcat(buffer, str2);
+	str2[]
+	[...]
+
+		return strcat(buffer, str2);
+}
 
 
 main:
-char *str;
-str = pp();
+char str[64];
+pp(str);
 puts(str);
