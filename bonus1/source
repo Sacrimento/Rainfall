@@ -1,10 +1,14 @@
-main(argv, env):
-if(atoi(argv[1]) == 0x1a7)
+main():
 {
-	fwrite("No !\n", 0x1, 0x5, edx);
-	return;
+sub 0x40
+int t = atoi(argv[1])
+
+if (t >= 9)
+	return 1;
+
+memcpy(buf?, argv[2], t * 4)
+
+if (??? == 0x574f4c46)
+	execl("/bin/sh", "sh", NULL);
+return 0;
 }
-str = strdup("/bin/sh")
-setresgid(getgid(), geteuid());
-setresuid(getgid(), geteuid());
-execv(str, env);
