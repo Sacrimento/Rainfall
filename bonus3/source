@@ -1,10 +1,37 @@
-main(argv, env):
-if(atoi(argv[1]) == 0x1a7)
-{
-	fwrite("No !\n", 0x1, 0x5, edx);
-	return;
-}
-str = strdup("/bin/sh")
-setresgid(getgid(), geteuid());
-setresuid(getgid(), geteuid());
-execv(str, env);
+#include <stdio.h>
+
+int main (uint32_t arg_8h, char **str);
+var int32_t var_8h
+arg uint32_t arg_8h
+arg char **str
+var char *size
+var size_t nmemb
+var file*stream
+var char *ptr
+var int32_t var_53h
+var file*var_10h
+
+stream = fopen("/home/user/end/.pass", 'r')
+if ( stream == NULL)
+	return -1;
+if (argc < 2)
+	return -1;
+
+ptr = {0}; (mise a zero)
+
+fread(ptr, 1, 66, stream);
+int len = atoi(argv[1]);
+
+truc?[len + 24] = 0;
+
+fread(ptr + 66, 1, 65, stream);
+fclose(stream);
+
+s1 = argv[1];
+s2 = ptr + 66;
+
+if (strcmp(s1, s2) == 0)
+	execl("/bin/sh", "sh", NULL);
+else
+	puts(ptr[66]);
+return 0;
