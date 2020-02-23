@@ -1,14 +1,17 @@
-o:
-system("/bin/sh");
-esp = 0x1;
-exit();
+o():
+{
+	system("/bin/sh");
+	exit(1);
+}
 
-n:
-fgets(str, 0x200, file);
-printf(str);
-esp = 0x1;
-exit();
-
+n():
+{
+	fgets(str, 512, STDIN);
+	printf(str);
+	exit(1);
+}
 
 main:
-n()
+{
+	n();
+}

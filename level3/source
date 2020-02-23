@@ -1,12 +1,17 @@
-v:
-printf(fgets(str, 0x200, file));
-mov    eax,ds:0x8049880
-if (eax != 0x40)
-	return;
-fwrite("Wait what?!\n", 0x1, 0xc, edx);
-system("/bin/sh");
+v(void):
+{
+	char *str;
 
+	printf(fgets(str, 512, stdin));
 
+	printf(argv[1]);
+	if (obj.m != 64) //obj.m -> 0x804988c:4
+		return;
+	fwrite("Wait what?!\n", 1, 12, stdout);
+	system("/bin/sh");
+}
 
 main:
-v()
+{
+	v()
+}

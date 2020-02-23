@@ -1,17 +1,20 @@
-p:
-char string[76?];
-
-fflush();
-
-string = gets()
-if (eax & 0xb0000000)
+p(int arg_4h):
 {
-	puts(string)
-	strdup(string)
-	return ;
+	FILE *stream;
+	char string[76];
+
+	fflush(stdout);
+
+	gets(string)
+	if (string + 12 & 0xb0000000)
+	{
+		puts(string);
+		strdup(string);
+		return ;
+	}
+	printf("(%p)\n", string + 12);
+	exit(1);
 }
-printf();
-exit();
 
 main:
 p()

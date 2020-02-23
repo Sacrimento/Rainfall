@@ -1,20 +1,24 @@
-m:
-t = time(0);
-printf("%s - %d\n", t, str);
+m():
+{
+	time_t t = time(0);
+	printf("%s - %d\n", t, str);
+}
 
-main:
-str1 = malloc(8)
-edx = malloc(8)
-eax = str1
-str2 = malloc(8)
-edx = malloc(8)
+main(int argc, char **argv):
+{
+	str1 = malloc(8)
+	edx = malloc(8)
+	eax = str1
+	str2 = malloc(8)
+	edx = malloc(8)
 
-eax = str2
+	eax = str2
 
-strcpy(str1, argv[1]);
+	strcpy(str1, argv[1]);
 
-strcpy(str2, argv[2]);
+	strcpy(str2, argv[2]);
 
-file = fopen("/home/user/level8/.pass", "r");
-fgets(str, 0x44, file)
-puts("~~")
+	file = fopen("/home/user/level8/.pass", "r");
+	fgets(str, 0x44, file)
+	puts("~~")
+}

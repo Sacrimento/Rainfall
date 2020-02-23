@@ -1,20 +1,22 @@
-n:
-system("/bin/cat /home/user/level7/.pass");
-m:
-puts("Nope");
+n():
+{
+	system("/bin/cat /home/user/level7/.pass");
+}
 
-main:
-str1 (truc) = malloc(64)
+m():
+{
+	puts("Nope");
+}
 
-eax+0x18 = malloc(4);
+main():
+{
+	dest = malloc(64)
 
-edx = addresse de m();
+	var_ch = malloc(4);
 
-eax = eax+0x18
-[eax] = edx
-eax  = ebp+0xc
+	edx = &m();
 
-eax += 4
-edx = eax
-
-strcpy(str1, edx)
+	strcpy(dest, argv[1]);
+	eax = var_ch;
+	eax();
+}
