@@ -1,6 +1,5 @@
 p(int arg_4h):
 {
-	FILE *stream;
 	char string[76];
 
 	fflush(stdout);
@@ -17,4 +16,6 @@ p(int arg_4h):
 }
 
 main:
-p()
+{
+	p()
+}

@@ -1,9 +1,12 @@
-run:
-	FILE *stream;
+run():
+{
 	fwrite("Good... Wait what?\n", 1, 19, stdout);
 	system("/bin/sh");
+}
 
 main:
-char str[80];
+{
+	char str[80];
 
-gets(str);
+	gets(str);
+}
