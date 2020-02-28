@@ -1,32 +1,40 @@
 N::setAnnotation(char*) ()
-_ZN1N13setAnnotationEPc(char *str):
 {
-	char buff[18]; ???
+	char buff[18];
+	char buff[8];
 	memcpy(buff, str, strlen(str));
 }
 
-N::N(int) ()
-_ZN1NC1Ei(int value):
-edx = value
+N::N(int value)
+{
+	edx = value;
+}
 
 main:
-if (argc < 2)
-	exit (1);
-elem1 = _Znwj(12) //operator new() ?
-elem2 = _ZN1NC1Ei(elem1, 5); //pas sur pour les 2 args
-elem3 = _Znwj(6, elem1 'esp + 0x1c')
-elem4 = _ZN1NC1Ei(elem3, 6)
+{
+	int32_t var_24h @ esp+0x4
+	int32_t var_18h @ esp+0x10
+	int32_t var_14h @ esp+0x14
+	int32_t var_10h @ esp+0x18
+	int32_t var_ch @ esp+0x1c
 
-truc1 [esp + 0x18] = elem3 // (134520952) ?
-truc2 [esp + 0x14] = elem1 // (134520840) ?
-truc3 [esp + 0x10] = truc1
+	if (argc < 2)
+		exit (1);
 
-truc4 = *[argv + 0xc]
+	elem1 = new N(12);
+	elem1.N(5);
+	elem2 = new N(108);
+	elem2.N(6);
 
-result = _ZN1N13setAnnotationEPc(truc4)
+	var_18h = elem2;
+	var_14h = elem1;
+	var_18h = var_18h; //(elem2)
 
-truc5 = truc3
-truc6 = *result
-func = *result
+	result = N::setAnnotation(argv[2]);
 
-func(truc2, truc4)
+	truc5 = truc3
+	truc6 = *result
+	func = *result
+
+	func(truc2, truc4)
+}
