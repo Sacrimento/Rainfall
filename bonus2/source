@@ -1,12 +1,15 @@
-greetuser:
+
+greetuser(int32_t ptr):
 {
-	stack:0x58
-	if (eax == 1)
-	else if (eax == 2)
+	s1[72] = "Hello";
 
-	strcat;
-	puts;
+	if (obj.language == 1)
+		s1 = "Hyvää päivää";
+	else if (obj.language == 2)
+		s1 = "Goedemiddag!";
 
+	strcat(s1, ptr);
+	puts(s1);
 }
 
 main:

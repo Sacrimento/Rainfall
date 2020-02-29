@@ -1,32 +1,30 @@
 p(buf, str):
 {
-	buffer[4120];
+	buffer[4104];
+
 	puts(str);
 	read(0, buff, 4096);
 	ptr = strchr(buff, "\n");
 	return strncpy(argv[2], ptr, 20);
 }
 
-pp:
+pp(char *dest):
 {
-	buf1;
-	buf2;
+	buf1[48];
+	buf2[28];
 
 	str1 = p(buf1, " - ");
 	str2 = p(buf2, " - ");
 
-	[...]
+	strcpy(dest, str1);
 
-		strcpy(buffer, str1);
-
-	str2[]
-	[...]
-
-		return strcat(buffer, str2);
+	return strcat(dest, str2);
 }
 
-
 main:
-char str[64];
-pp(str);
-puts(str);
+{
+	char str[22];
+
+	pp(str);
+	puts(str);
+{
