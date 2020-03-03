@@ -1,11 +1,11 @@
-main(argv, env):
+main(argc, argv, env):
 {
-	if(atoi(argv[1]) == 423)
+	if(atoi(argv[1]) != 423)
 	{
-		fwrite("No !\n", 1, 5, edx);
+		fwrite("No !\n", 1, 5, stdout);
 		return;
 	}
-	char str = strdup("/bin/sh");
+	char *str = strdup("/bin/sh");
 	setresgid(getgid(), geteuid());
 	setresuid(getgid(), geteuid());
 	execv(str, env);

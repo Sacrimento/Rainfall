@@ -5,13 +5,13 @@ p():
 	fflush(stdout);
 
 	gets(string)
-	if (string - 12 & 0xb0000000)
+	if (*(&string + sizeof(string) + 4) & 0xb0000000)
 	{
 		puts(string);
 		strdup(string);
 		return ;
 	}
-	printf("(%p)\n", string - 12);
+	printf("(%p)\n", *(&string + sizeof(string) + 4);
 	exit(1);
 }
 

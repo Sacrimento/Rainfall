@@ -1,1 +1,2 @@
-423
+Binary compares first argument with 423. If they are equal, it spawns a shell.
+	- ./level0 423

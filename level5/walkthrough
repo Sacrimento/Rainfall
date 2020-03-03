@@ -1,3 +1,4 @@
+Again, a format string exploit
 We replace the address of exit by the address of o function
 
 Address of o -> 0x80484a4 (134513828)
@@ -16,4 +17,4 @@ Explanation:
 +         2 -> '%c'*2 skip 2 arguments
 + 134513822 -> 3rd argument with padding
 ------------
-  134513828
+  134513828 (0x080484a4)
