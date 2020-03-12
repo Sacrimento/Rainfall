@@ -1,8 +1,10 @@
-N::setAnnotation(char*) ()
+N::setAnnotation(char*)
 {
-	char buff[18];
-	char buff[8];
-	memcpy(buff, str, strlen(str));
+	char	buff[16]; 
+	size_t	n;
+
+	n = strlen(str);
+	memcpy(buff, str, n);
 }
 
 N::N(int value)
@@ -10,31 +12,22 @@ N::N(int value)
 	edx = value;
 }
 
-main:
+main(int arc, char **argv)
 {
-	int32_t var_24h @ esp+0x4
-	int32_t var_18h @ esp+0x10
-	int32_t var_14h @ esp+0x14
-	int32_t var_10h @ esp+0x18
-	int32_t var_ch @ esp+0x1c
+	class N *elem1;
+	class N *elem2;
 
 	if (argc < 2)
 		exit (1);
 
-	elem1 = new N(12);
+	elem1 = new N(108);
 	elem1.N(5);
 	elem2 = new N(108);
 	elem2.N(6);
 
-	var_18h = elem2;
-	var_14h = elem1;
-	var_18h = var_18h; //(elem2)
+	result = elem1.setAnnotation(argv[1]);
 
-	result = N::setAnnotation(argv[2]);
+	func = *result;
 
-	truc5 = truc3
-	truc6 = *result
-	func = *result
-
-	func(truc2, truc4)
+	func(elem1, elem2);
 }

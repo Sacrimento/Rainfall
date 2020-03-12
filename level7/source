@@ -6,19 +6,23 @@ m():
 
 main(int argc, char **argv):
 {
-	str1 = malloc(8)
-	edx = malloc(8)
-	eax = str1
-	str2 = malloc(8)
-	edx = malloc(8)
+	file	*file;
+	void	**var_18h;
+	/* void	**var_28h; */
+	void	**var_1ch;
+	/* void	**var_2ch; */
 
-	eax = str2
+	*var_1ch = malloc(8);
+	*var_2ch = malloc(8);
 
-	strcpy(str1, argv[1]);
+	*var_18h = malloc(8);
+	*var_28h = malloc(8);
 
-	strcpy(str2, argv[2]);
+	strcpy(var_1ch, argv[1]);
+
+	strcpy(var_18h, argv[2]);
 
 	file = fopen("/home/user/level8/.pass", "r");
-	fgets(str, 0x44, file)
-	puts("~~")
+	fgets(str, 68, file);
+	puts("~~");
 }

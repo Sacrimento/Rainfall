@@ -1,7 +1,7 @@
-typedef struct obj
+struct obj
 {
-	int service:4;
-	char *auth;
+	char	*auth;
+	int		*service;
 };
 
 main():
@@ -17,8 +17,8 @@ main():
 		if (buffer == "auth ")
 		{
 			obj.auth = malloc(4);
-			if (strlen(buffer) < 30)
-				strcpy(buffer, src);
+			if (strlen(&buffer[5]) <= 30)
+				strcpy(buffer, &src[5]);
 		}
 		else if (buffer == "reset")	
 		{
@@ -26,11 +26,11 @@ main():
 		}
 		else if (buffer == "service")
 		{
-			buffer = strdup(buffer + 7); // "service" + 7
+			obj.service = strdup(&buffer[7]);
 		}
 		else if (buffer == "login")
 		{
-			if (obj.auth + 32)
+			if (obj.auth[32])
 			{
 				fwrite("Password:\n", 1, 10, STDOUT);
 				continue;
