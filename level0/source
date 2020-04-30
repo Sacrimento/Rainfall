@@ -1,13 +1,22 @@
-main(argc, argv, env):
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main(int argc, const char *argv[])
 {
-	if(atoi(argv[1]) != 423)
+	char *str;
+
+	if ( atoi(argv[1]) != 423 )
 	{
 		fwrite("No !\n", 1, 5, stdout);
-		return;
+		return 0;
 	}
-	char *str = strdup("/bin/sh");
-	setresgid(getgid(), geteuid());
-	setresuid(getgid(), geteuid());
+	str = strdup("/bin/sh");
+	setresgid(getgid(), getgid(), getgid());
+	setresuid(geteuid(), geteuid(), geteuid());
 	execv(str, env);
 	return 0;
 }

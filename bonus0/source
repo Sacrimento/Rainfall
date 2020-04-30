@@ -1,17 +1,22 @@
-p(dst, str)
+#include <string.h>
+#include <unistd.h>
+#include <stdio.h>
+
+void p(char *dst, char *str)
 {
-	buffer[4104];
+	void *ptr;
+	char buffer[4104];
 
 	puts(str);
-	read(0, buff, 4096);
-	ptr = strchr(buff, "\n");
+	read(0, buffer, 4096);
+	ptr = strchr(buffer, '\n');
 	strncpy(dst, buffer, 20);
 }
 
-pp(char *dest)
+void pp(char *dest)
 {
-	buf1[48];
-	buf2[28];
+	char buf1[48];
+	char buf2[28];
 
 	p(buf1, " - ");
 	p(buf2, " - ");
@@ -19,10 +24,10 @@ pp(char *dest)
 	strcpy(dest, buf1);
 
 	dest[strlen(dest) - 1] = " ";
-	return strcat(dest, buf2);
+	strcat(dest, buf2);
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	char str[22];
 

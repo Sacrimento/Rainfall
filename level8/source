@@ -1,38 +1,38 @@
-struct obj
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+typedef struct	obj_s
 {
 	char	*auth;
-	int	*service;
-};
+	int		*service;
+}				obj;
 
-main():
+int main(int argc, char **argv)
 {
-	char src[];
-	FILE *stream;
-	obj obj;
+	char	 *src;
+	obj		obj;
 
 	printf("%p, %p \n", obj.auth, obj.service);
 
-	while (fgets(src, 128, STDIN))
+	while ( fgets(src, 128, STDIN_FILENO) )
 	{
-		if (src.startswith("auth "))
+		if ( src.startswith("auth ") )
 		{
 			obj.auth = malloc(4);
-			if (strlen(&src[5]) <= 30)
+			if ( strlen(&src[5]) <= 30 )
 				strcpy(obj.auth, &src[5]);
 		}
-		else if (src == "reset")	
-		{
+		else if ( src == "reset" )
 			free(obj.auth);
-		}
-		else if (src == "service")
+		else if ( src == "service" )
+			obj.service = strdup(&src[7]);
+		else if ( src == "login" )
 		{
-			obj.service = strdup(&buffer[7]);
-		}
-		else if (src == "login")
-		{
-			if (obj.auth[32])
+			if ( obj.auth[32] )
 			{
-				fwrite("Password:\n", 1, 10, STDOUT);
+				fwrite("Password:\n", 1, 10, STDOUT_FILENO);
 				continue;
 			}
 			system("/bin/sh");

@@ -1,18 +1,28 @@
-p(str):
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int m;
+
+void p()
 {
-	return printf(str);
+	char *str;
+
+	printf(str);
 }
 
-n():
+void n()
 {
+	char *str;
+
 	fgets(str, 512, stdin);
 	p(str);
-	if (obj.m != 0x1025544) //obj.m -> [0x8049810:4]
+	if (m != 0x1025544)
 		return;
 	system("/bin/cat /home/user/level5/.pass");
 }
 
-main():
+int main(int argc, char **argv)
 {
 	n();
 }

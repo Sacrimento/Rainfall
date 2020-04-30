@@ -1,28 +1,39 @@
+#include <string.h>
+#include <stdio.h>
 
-greetuser(int32_t ptr):
+int language = 0;
+
+void greetuser(char *ptr)
 {
-	s1[72] = "Hello";
+	char	s1[72] = "Hello";
 
-	if (obj.language == 1)
+	if ( language == 1 )
 		s1 = "Hyvää päivää";
-	else if (obj.language == 2)
+	else if ( language == 2 )
 		s1 = "Goedemiddag!";
 
 	strcat(s1, ptr);
 	puts(s1);
 }
 
-main:
+int main(int argc, char **argv)
 {
-	stack:160
-	if (argc != 3)
+	char *lang_env;
+	char *buf;
+
+	if ( argc != 3 )
 		return 1;
-	ecx =13;
-	strncpy(buf, argv[1], 40);
-	strncpy(buf, argv[2], 32);
-	truc = getenv("LANG")
-	if (!)
-		-> main + 239
-	if ( memcmp(truc, "fi", 2) )
-	else if ( memcmp(truc, "nl", 2) )
+
+	strncpy(buf,      argv[1], 40);
+	strncpy(&buf[40], argv[2], 32);
+	lang_env = getenv("LANG");
+
+	if ( lang_env != NULL )
+	{
+		if ( memcmp(lang_env, "fi", 2) )
+			language = 1;
+		else if ( memcmp(lang_env, "nl", 2) )
+			language = 2;
+	}
+	greetuser(buf);
 }

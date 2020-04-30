@@ -1,21 +1,27 @@
-p():
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+void p()
 {
 	char string[76];
 
 	fflush(stdout);
 
-	gets(string)
-	if (*(&string + sizeof(string) + 4) & 0xb0000000)
+	gets(string);
+	if ( string[sizeof(string) + 4] & 0xb0000000)
 	{
 		puts(string);
 		strdup(string);
 		return ;
 	}
-	printf("(%p)\n", *(&string + sizeof(string) + 4);
+	printf("(%p)\n", string[sizeof(string) + 4]);
 	exit(1);
 }
 
-main:
+int main(int argc, const char *argv[])
 {
-	p()
+	p();
+	return 0;
 }

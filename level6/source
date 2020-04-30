@@ -1,22 +1,25 @@
-n():
+#include <string.h>
+#include <stdlib.h>
+#include <string.h>
+
+void n()
 {
 	system("/bin/cat /home/user/level7/.pass");
 }
 
-m():
+void m()
 {
 	puts("Nope");
 }
 
-main():
+int main(int argc, char **argv)
 {
-	dest = malloc(64)
+	void *var_ch;
+	void *dest;
 
+	dest = malloc(64);
 	var_ch = malloc(4);
 
-	edx = &m();
-
 	strcpy(dest, argv[1]);
-	eax = var_ch;
-	eax();
+	var_ch();
 }

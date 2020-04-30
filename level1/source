@@ -1,12 +1,16 @@
-run():
+#include <stdlib.h>
+#include <stdio.h>
+
+void run()
 {
 	fwrite("Good... Wait what?\n", 1, 19, stdout);
 	system("/bin/sh");
 }
 
-main:
+int main(int argc, const char *argv[])
 {
 	char str[80];
 
 	gets(str);
+	return 0;
 }

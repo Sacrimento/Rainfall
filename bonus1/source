@@ -1,17 +1,20 @@
-main(int ac, char **argv):
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int ac, char **argv)
 {
 	char s1[40];
 	int t;
 
-	atoi(argv[1]);
+	t = atoi(argv[1]);
 
 	if (t >= 9)
 		return 1;
 
-	memcpy(s1, argv[2], t * 4)
+	memcpy(s1, argv[2], t * 4);
 
-	// t est apres le buffer s1, on overflow donc dans t
 	if (t == 0x574f4c46)
-		execl("/bin/sh", NULL);
+		execl("/bin/sh", "sh", NULL);
 	return 0;
 }

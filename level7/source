@@ -1,14 +1,21 @@
-m():
-{
-	char *str; //esp +4;
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <time.h>
+#include <string.h>
 
-	time_t t = time(0);
-	printf("%s - %d\n", str, t);
+void	m(char * str)
+{
+	time_t t;
+
+	t = time(0);
+	printf("%s - %d\n", str, (int)t);
 }
 
-main(int argc, char **argv):
+int		main(int argc, char **argv)
 {
-	file	*file;
+	FILE	*file;
+	char	*str;
 	void	**var_18h;
 	void	**var_28h;
 	void	**var_1ch;
@@ -20,9 +27,9 @@ main(int argc, char **argv):
 	*var_18h = malloc(8);
 	*var_28h = malloc(8);
 
-	strcpy(var_1ch, argv[1]);
+	strcpy(*var_1ch, argv[1]);
 
-	strcpy(var_18h, argv[2]);
+	strcpy(*var_18h, argv[2]);
 
 	file = fopen("/home/user/level8/.pass", "r");
 	fgets(str, 68, file);

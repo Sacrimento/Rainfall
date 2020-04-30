@@ -12,12 +12,12 @@ N::N(int value)
 	edx = value;
 }
 
-main(int arc, char **argv)
+int main(int arc, char **argv)
 {
 	class N *elem1;
 	class N *elem2;
 
-	if (argc < 2)
+	if ( argc < 2 )
 		exit (1);
 
 	elem1 = new N(108);

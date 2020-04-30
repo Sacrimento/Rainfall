@@ -1,17 +1,24 @@
-o():
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+
+void o()
 {
 	system("/bin/sh");
 	exit(1);
 }
 
-n():
+void n()
 {
-	fgets(str, 512, STDIN);
+	char *str;
+
+	fgets(str, 512, STDIN_FILENO);
 	printf(str);
 	exit(1);
 }
 
-main:
+int main(int argc, char **argv)
 {
 	n();
+	return 0;
 }

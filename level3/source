@@ -1,17 +1,24 @@
-v(void):
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+
+int m;
+
+void v(void)
 {
 	char *str;
 
-	printf(fgets(str, 512, stdin));
+	fgets(str, 512, stdin);
 
-	printf(argv[1]);
-	if (obj.m != 64) //obj.m -> 0x804988c:4
+	printf(str);
+	if (m != 64)
 		return;
 	fwrite("Wait what?!\n", 1, 12, stdout);
 	system("/bin/sh");
 }
 
-main:
+int main(int argc, const char *argv[])
 {
-	v()
+	v();
+	return 0;
 }
