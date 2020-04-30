@@ -1,1 +1,10 @@
-1 1 7 3 login
+Le progamme prend 4 inputs : "auth ", "service", "reset" et "login"
+Il set deux variables dans une structure, auth et service, avec les strings passees a la suite de leurs commandes respectives
+On remarque qu'il lance un system("/bin/sh") si auth[32] != 0.
+Il suffit de set la variable auth avec un "auth ", puis de lancer service avec 16 caracteres a la suite : "serviceAAAAAAAAAAAAAAAA"
+Etant donne que ces variables sont dans une structure, auth[32] pointe en realite sur la string de service, donc les A.
+
+./level8
+auth 
+serviceAAAAAAAAAAAAAAAA
+

@@ -1,6 +1,6 @@
 main(int ac, char **argv):
 {
-	void s1[40];
+	char s1[40];
 	int t;
 
 	atoi(argv[1]);

