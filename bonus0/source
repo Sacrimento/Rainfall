@@ -16,15 +16,16 @@ pp(char *dest)
 	p(buf1, " - ");
 	p(buf2, " - ");
 
-	strcpy(dest, str1);
+	strcpy(dest, buf1);
 
-	return strcat(dest, str2);
+	dest[strlen(dest) - 1] = " ";
+	return strcat(dest, buf2);
 }
 
 main(int argc, char **argv)
 {
-	char str[42];
+	char str[22];
 
 	pp(str);
 	puts(str);
-{
+}

@@ -1,16 +1,18 @@
 m():
 {
+	char *str; //esp +4;
+
 	time_t t = time(0);
-	printf("%s - %d\n", t, str);
+	printf("%s - %d\n", str, t);
 }
 
 main(int argc, char **argv):
 {
 	file	*file;
 	void	**var_18h;
-	/* void	**var_28h; */
+	void	**var_28h;
 	void	**var_1ch;
-	/* void	**var_2ch; */
+	void	**var_2ch;
 
 	*var_1ch = malloc(8);
 	*var_2ch = malloc(8);
