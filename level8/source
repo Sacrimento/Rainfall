@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 
 	printf("%p, %p \n", obj.auth, obj.service);
 
-	while ( fgets(src, 128, STDIN_FILENO) )
+	while ( fgets(src, 128, stin) )
 	{
 		if ( src.startswith("auth ") )
 		{
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 		{
 			if ( obj.auth[32] )
 			{
-				fwrite("Password:\n", 1, 10, STDOUT_FILENO);
+				fwrite("Password:\n", 1, 10, stdout);
 				continue;
 			}
 			system("/bin/sh");

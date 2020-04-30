@@ -12,7 +12,7 @@ void n()
 {
 	char *str;
 
-	fgets(str, 512, STDIN_FILENO);
+	fgets(str, 512, stdin);
 	printf(str);
 	exit(1);
 }
