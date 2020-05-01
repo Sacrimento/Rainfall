@@ -1,5 +1,6 @@
-gdb ->
+The program strcpys our first argument to a 64 byte buffer without checking its size. We can overflow the buffer.
 
+gdb->
 r $(python -c 'print("AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYYZZZZ")')
 
 segfault on '0x53535353' (SSSS)

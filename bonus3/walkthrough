@@ -1,3 +1,8 @@
 The program takes 1 argument.
 It copies 2 times the final pass to a buffer, and then compares this buffer+66 with argv[1]. If they are equal, we win.
-Since a pass length is 64, we can 2 more bytes for the "\n\0". W
+Since a pass length is 64, we can add 2 more bytes for the "\n\0".
+The final buffer looks like this: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n\0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n\0".
+The program checks if buffer+66 == argv[1]. buffer+66 == \0, we only need to send a empty string.
+
+./bonus3 ""
+
